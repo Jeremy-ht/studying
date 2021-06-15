@@ -6,14 +6,18 @@
 </template>
 
 <script>
-import FooterGuide from './components/FooterGuide/FooterGuide'
+  import FooterGuide from './components/FooterGuide/FooterGuide'
+  import {reqFoodCategorys} from './api'
 
-export default {
-  name: 'App',
-  components: {
-    FooterGuide
+  export default {
+    name: 'App',
+    components: {
+      FooterGuide
+    },
+    async mounted () {
+      console.log(await reqFoodCategorys)
+    }
   }
-}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

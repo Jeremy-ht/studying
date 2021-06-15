@@ -1,14 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// import Msite from '../pages/Msite/Msite'
-// import Search from '../pages/Search/Search'
-// import Order from '../pages/Order/Order'
-// import Profile from '../pages/Profile/Profile'
+
 const MSite = () => import('../pages/MSite/MSite.vue')
 const Search = () => import('../pages/Search/Search.vue')
 const Order = () => import('../pages/Order/Order.vue')
 const Profile = () => import('../pages/Profile/Profile.vue')
 const Login = () => import('../pages/Login/Login.vue')
+
 Vue.use(VueRouter)
 
 export default new VueRouter({
@@ -20,28 +18,28 @@ export default new VueRouter({
     {
       path: '/msite',
       component: MSite,
-      meta:{
+      meta: {
         showFooter: true
       }
     },
     {
       path: '/search',
       component: Search,
-      meta:{
+      meta: {
         showFooter: true
       }
     },
     {
       path: '/order',
       component: Order,
-      meta:{
+      meta: {
         showFooter: true
       }
     },
     {
       path: '/profile',
       component: Profile,
-      meta:{
+      meta: {
         showFooter: true
       }
     },
