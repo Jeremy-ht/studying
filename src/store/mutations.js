@@ -10,11 +10,11 @@ export default {
     state.address = address
   },
 
-  [RECEIVE_CATEGORYS] (state, {categorys}) {
+  [RECEIVE_CATEGORYS] (state, categorys) {
     state.categorys = categorys
   },
 
-  [RECEIVE_SHOPS] (state, {shops}) {
+  [RECEIVE_SHOPS] (state, shops) {
     state.shops = shops
   }
 }

@@ -13,7 +13,6 @@ import {
 export default {
   async getAddress ({commit, state}) {
     const geohash = state.latitude + ',' + state.longitude
-    console.log(geohash)
     const result = await reqAddress(geohash)
 
     if (result.code === 0) {
@@ -22,4 +21,23 @@ export default {
     }
 
   },
+
+  async getCategorys ({commit}) {
+    const result = await reqFoodCategorys()
+    if (result.code === 0) {
+      const category = result.data
+      commit(RECEIVE_CATEGORYS, category)
+    }
+
+  },
+
+  async getShops ({commit, state}) {
+    const result = await reqShops(state.longitude, state.latitude)
+    if (result.code === 0) {
+      const shops = result.data
+      commit(RECEIVE_SHOPS, shops)
+    }
+
+  },
+
 }
