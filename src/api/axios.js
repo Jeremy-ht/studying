@@ -26,5 +26,6 @@ export default function ajax (url, data = {}, type = 'GET') {
     }).catch(function (error) {
       reject(error)
     })
+
   })
 }

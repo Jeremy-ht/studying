@@ -106,6 +106,7 @@
   @import "../../common/stylus/mixins.styl"
   .profile //我的
     width 100%
+    overflow hidden
 
     .header
       background-color #02a774
