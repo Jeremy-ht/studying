@@ -6,5 +6,6 @@ export default {
   longitude: 116.3, // 经度
   address: {},
   categorys: [],
-  shops: []
+  shops: [],
+  userInfo: {},
 }
