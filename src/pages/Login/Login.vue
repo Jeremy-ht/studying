@@ -51,7 +51,8 @@
 
               <section class="login_message">
                 <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
-                <img class="get_verification" src="http://localhost:4000/captcha" alt="captcha" @click="getCaptcha">
+                <img class="get_verification" src="http://localhost:4000/captcha"
+                     alt="captcha" @click="getCaptcha" ref="captchas">
               </section>
             </section>
           </div>
@@ -71,6 +72,7 @@
 
 <script>
   import AlertTip from '../../components/AlertTip/AlertTip'
+  import {reqPwdLogin, reqSendCode} from '../../api'
 
   export default {
     name: 'Login',
@@ -87,21 +89,24 @@
         showPwd: false, // 是否显示密码
         alertShow: false,
         alertText: '',
+        times: '',
       }
     },
     components: {
       AlertTip
     },
     methods: {
+
+      /**
+       * 发送验证码
+       */
       sendMsg () {
         if (!this.timer) {
-
-          // 倒计时
           this.timer = 30
-          let times = setInterval(() => {
+          this.times = setInterval(() => {
             this.timer--
             if (this.timer <= 0) {
-              clearInterval(times)
+              clearInterval(this.times)
             }
           }, 1000)
 
@@ -111,37 +116,77 @@
 
       },
 
-      getCaptcha (event) {
-        event.target.src = 'http://localhost:4000/captcha?time=' + Date.now()
+      /**
+       *  更新验证码
+       */
+      getCaptcha () {
+        this.$refs.captchas.src = 'http://localhost:4000/captcha?time=' + Date.now()
 
       },
 
+      /**
+       *  提示框
+       */
       showAlert (text) {
         this.alertText = text
         this.alertShow = true
       },
 
-      sendCode () {
+      /**
+       *  发送登录请求
+       */
+      async sendCode () {
 
-        if (this.showLoginWay) {
+        let result
+        if (this.showLoginWay) {  // 手机号码登录
           if (!this.getShowCode) {
             this.showAlert('手机号错误')
+            return
           } else if (!/^\d{6}$/.test(this.code)) {
             this.showAlert('验证码错误')
+            return
           }
+          result = await reqSendCode(this.phone)
 
         } else {
-          if (!this.name) {
+          const {name, pwd, captcha} = this
+
+          if (!name) { // 密码登录
             this.showAlert('用户名不能为空')
-          } else if (!this.pwd) {
+            return
+          } else if (!pwd) {
             this.showAlert('密码错误')
-          } else if (!/^\d{6}$/.test(this.captcha)) {
+            return
+          } else if (!captcha) {
             this.showAlert('验证码错误')
+            return
           }
+          result = await reqPwdLogin({name, pwd, captcha})
+
+        }
+
+        // 停止定时器
+        if (this.timer) {
+          this.timer = 0
+          clearInterval(this.times)
+          this.times = undefined
+        }
+
+        if (result.code === 0) {
+
+          // 保存用户信息
+
+          this.$router.replace('profile')
+        } else {
+          this.getCaptcha()
+          this.showAlert(result.msg)
         }
 
       },
 
+      /**
+       * 关闭提示框
+       */
       closeTip () {
         this.alertShow = false
         this.alertText = ''
