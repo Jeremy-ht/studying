@@ -6,6 +6,10 @@ const Search = () => import('../pages/Search/Search.vue')
 const Order = () => import('../pages/Order/Order.vue')
 const Profile = () => import('../pages/Profile/Profile.vue')
 const Login = () => import('../pages/Login/Login.vue')
+const Shop = () => import('../pages/Shop/Shop.vue')
+const ShopGoods = () => import('../pages/Shop/ShopGoods/ShopGoods.vue')
+const ShopRetings = () => import('../pages/Shop/ShopRetings/ShopRetings.vue')
+const ShopInfo = () => import('../pages/Shop/ShopInfo/ShopInfo.vue')
 
 Vue.use(VueRouter)
 
@@ -46,6 +50,31 @@ export default new VueRouter({
     {
       path: '/login',
       component: Login
-    }
+    },
+
+    // 商家路由
+    {
+      path: '/shop',
+      component: Shop,
+      children:[
+        {
+          path: '/shop/goods',
+          component: ShopGoods
+        },
+        {
+          path: '/shop/retings',
+          component: ShopRetings
+        },
+        {
+          path: '/shop/info',
+          component: ShopInfo
+        },
+        {
+          path: '',
+          redirect:'/shop/goods'
+        },
+      ]
+    },
+
   ]
 })

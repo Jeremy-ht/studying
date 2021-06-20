@@ -116,7 +116,6 @@ export default {
         // 发送验证码
 
       }
-
     },
 
     /**
@@ -124,7 +123,6 @@ export default {
      */
     getCaptcha () {
       this.$refs.captchas.src = 'http://localhost:4000/captcha?time=' + Date.now()
-
     },
 
     /**
