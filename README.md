@@ -23,3 +23,19 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ## goods
 ## ratings
 ## shops
+
+
+## vue transition
+  https://cn.vuejs.org/v2/guide/transitions.html
+
+```vue
+
+
+
+
+
+
+
+
+
+```
