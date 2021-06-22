@@ -38,7 +38,7 @@
       <div class="msite_shop_list">
         <div class="shop_header">
           <i class="iconfont icon-xuanxiang"></i>
-          <span class="shop_header_title">附近商家</span>
+          <span class="shop_header_title" @click="$router.push('test')">附近商家</span>
         </div>
         <ShopList/>
       </div>

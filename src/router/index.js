@@ -10,11 +10,16 @@ const Shop = () => import('../pages/Shop/Shop.vue')
 const ShopGoods = () => import('../pages/Shop/ShopGoods/ShopGoods.vue')
 const ShopRetings = () => import('../pages/Shop/ShopRetings/ShopRetings.vue')
 const ShopInfo = () => import('../pages/Shop/ShopInfo/ShopInfo.vue')
+const Test = () => import('../components/Test.vue')
 
 Vue.use(VueRouter)
 
 export default new VueRouter({
   routes: [
+    {
+      path: '/test',
+      component: Test
+    },
     {
       path: '/',
       redirect: '/msite'
