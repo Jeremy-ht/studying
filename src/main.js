@@ -9,6 +9,7 @@ import './mock/mockServer'
 Vue.config.productionTip = false
 
 Vue.component(Button.name, Button)
+
 new Vue({
   el: '#app',
   components: {App},
