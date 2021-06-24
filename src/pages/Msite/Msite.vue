@@ -57,7 +57,10 @@
 
   export default {
     name: 'Msite',
-    components: {HeaderTop, ShopList},
+    components: {
+      HeaderTop,
+      ShopList
+    },
     data () {
       return {
         baseImageUrl: 'https://fuss10.elemecdn.com'
@@ -72,7 +75,7 @@
 
     watch: {
       categorys () {
-        this.$nextTick(()=>{
+        this.$nextTick(() => {
           new Swiper('.swiper-container', {
             // 循环轮播
             loop: true,

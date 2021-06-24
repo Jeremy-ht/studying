@@ -1,41 +1,7 @@
-# gshop
-
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-## goods
-## ratings
-## shops
-
-
-## vue transition
-  https://cn.vuejs.org/v2/guide/transitions.html
-
-```vue
-
-
-
-
-
-
-
-
-
-```
+### goods better-scroll
+1、滑动使用 better-scroll
+2、滑动右侧左侧菜单更新
+    |- 收集每个li到ul的高度 tops 累加操作
+    |- 现在的高度scrollY
+    |- 左侧 使用索引来确定现在是第几个
+    |- 通过scroY在tops中的哪个位置 (findIndex) 确定其索引位置 更新左侧菜单索引(计算属性)

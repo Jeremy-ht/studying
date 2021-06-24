@@ -7,6 +7,8 @@ import {
   RECEIVE_GOODS,
   RECEIVE_RATINGS,
   RECEIVE_INFO,
+  INCREMENT_FOOD_COUNT,
+  DECREMENT_FOOD_COUNT,
 } from './mutation-types'
 
 import {
@@ -66,7 +68,7 @@ export default {
   },
 
   // 异步获取商家信息
-  async getShopInfo({commit}) {
+  async getShopInfo ({commit}) {
     const result = await reqShopInfo()
     if (result.code === 0) {
       const info = result.data
@@ -75,7 +77,7 @@ export default {
   },
 
   // 异步获取商家评价列表
-  async getShopRatings({commit}, callback) {
+  async getShopRatings ({commit}, callback) {
     const result = await reqShopRatings()
     if (result.code === 0) {
       const ratings = result.data
@@ -86,7 +88,7 @@ export default {
   },
 
   // 异步获取商家商品列表
-  async getShopGoods({commit}, callback) {
+  async getShopGoods ({commit}, callback) {
     const result = await reqShopGoods()
     if (result.code === 0) {
       const goods = result.data
@@ -96,5 +98,14 @@ export default {
     }
   },
 
+  // 异步更新foodCount
+   updateFoodCount ({commit}, {isAdd, food}) {
+    if (isAdd) {
+      commit(INCREMENT_FOOD_COUNT, {food})
+    } else {
+      commit(DECREMENT_FOOD_COUNT, {food})
+    }
+
+  },
 
 }
