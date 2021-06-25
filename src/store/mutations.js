@@ -9,7 +9,8 @@ import {
   RECEIVE_RATINGS,
   RECEIVE_GOODS,
   INCREMENT_FOOD_COUNT,
-  DECREMENT_FOOD_COUNT
+  DECREMENT_FOOD_COUNT,
+  CLEAR_CART_FOOD
 } from './mutation-types'
 
 export default {
@@ -49,6 +50,7 @@ export default {
   [INCREMENT_FOOD_COUNT] (state, {food}) {
     if (!food.count) {
       Vue.set(food, 'count', 1)
+      state.cartFoods.push(food)
     } else {
       food.count++
     }
@@ -57,6 +59,15 @@ export default {
   [DECREMENT_FOOD_COUNT] (state, {food}) {
     if (food.count) {
       food.count--
+      if (food.count === 0) {
+        state.cartFoods.splice(state.cartFoods.indexOf(food), 1)
+      }
     }
   },
+
+  [CLEAR_CART_FOOD] (state) {
+    state.cartFoods.forEach(food => food.count = 0)
+    state.cartFoods = []
+  },
+
 }
