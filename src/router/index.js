@@ -8,7 +8,7 @@ const Profile = () => import('../pages/Profile/Profile.vue')
 const Login = () => import('../pages/Login/Login.vue')
 const Shop = () => import('../pages/Shop/Shop.vue')
 const ShopGoods = () => import('../pages/Shop/ShopGoods/ShopGoods.vue')
-const ShopRetings = () => import('../pages/Shop/ShopRetings/ShopRetings.vue')
+const ShopRetings = () => import('../pages/Shop/ShopRatings/ShopRatings.vue')
 const ShopInfo = () => import('../pages/Shop/ShopInfo/ShopInfo.vue')
 const Test = () => import('../components/Test.vue')
 
