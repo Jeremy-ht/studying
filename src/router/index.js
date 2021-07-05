@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+// 路由懒加载
 const MSite = () => import('../pages/MSite/MSite.vue')
 const Search = () => import('../pages/Search/Search.vue')
 const Order = () => import('../pages/Order/Order.vue')
@@ -61,7 +62,7 @@ export default new VueRouter({
     {
       path: '/shop',
       component: Shop,
-      children:[
+      children: [
         {
           path: '/shop/goods',
           component: ShopGoods
@@ -76,7 +77,7 @@ export default new VueRouter({
         },
         {
           path: '',
-          redirect:'/shop/goods'
+          redirect: '/shop/goods'
         },
       ]
     },
