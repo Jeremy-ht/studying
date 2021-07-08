@@ -38,6 +38,73 @@
 3、css加载样式问题
 
 
+# CSS
+- box-shadow
+    盒子阴影
+
+
+- display
+    block
+    inline-block
+    inline
+    none
+
+      |- display: none;       不再占据页面的位置
+      |- visibility: hidden;  位置会依然保持
+
+
+- overflow
+    hidden
+    auto
+    scroll
+
+
+- opacity
+    半透明(兼容写法)
+      opacity: 0.5
+      filter:alpha(opacity=50)  (IE8以下)
+
+
+- box-sizing
+    content-box (*)
+    border-box
+
+
+- border-radius
+    圆角
+
+
+- float
+    left
+    right
+
+    解决高度塌陷问题最佳方案
+        .clearfix:after{
+            content: "";    /*添加一个内容*/
+            display: block;     /*转换为一个块元素*/
+            clear: both;    /*清除两侧的浮动*/
+          }
+
+
+- position
+    relative
+    absolute
+    fixed
+
+  z-index
+
+
+
+
+
+=== 不常用样式 ===
+- resize
+  控制一个元素的可调整大小性
+
+
+
+
+
 # VUE 源码学习
 
 ## 模板引擎
