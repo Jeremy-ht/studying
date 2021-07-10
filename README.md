@@ -94,6 +94,25 @@
   z-index
 
 
+- css权重
+    1、先从高等级进行比较，高等级相同时，再比较低等级的，以此类推
+    2、完全相同的话，就采用 后者优先 原则
+
+    注意：
+        出现了!important，则不管权重如何都取有!important的属性值，
+        但如设置了max-width/min-width则不会取!important
+
+
+
+
+
+=== 不熟样式 ===
+- vertical-align    https://developer.mozilla.org/zh-CN/docs/Web/CSS/vertical-align
+    指定行内元素（inline）或表格单元格（table-cell）元素的垂直对齐方式
+      baseline
+
+
+
 
 
 
@@ -108,6 +127,10 @@
 # VUE 源码学习
 
 ## 模板引擎
+1、dom
+2、join
+3、反引号 ``
+4、mustache
 
 
 
