@@ -2,6 +2,14 @@
  * 路由对象属性
  */
 
+
+
+
+
+
+
+
+
 // string 当前路由的绝对路径
 console.log('$route.path: ', this.$route.path);
 // Object 包含了动态片段和全匹配片段，没有路由参数，则为空对象
