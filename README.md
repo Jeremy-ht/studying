@@ -171,6 +171,12 @@
 
 
 
+原型链
+    prototype
+    __proto__
+
+
+
 
 
 
