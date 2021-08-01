@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+
+    div {
+        width: 200px;
+        height: 100px;
+        background-color: pink;
+        margin: 20px auto;
+    }
+
+    .box {
+        resize: both;
+        overflow: auto;
+    }
+
+    .box-border-radius {
+        width: 300px;
+        height: 100px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 100px;
+        border: pink solid 1px;
+        background-color: white;
+        font-size: 18px;
+        font-weight: 700;
+        position: relative;
+    }
+
+    .box-border-radius::before {
+        content: '';
+        display: block;
+        width: 30px;
+        height: 30px;
+        border: pink solid 1px;
+        position: absolute;
+        bottom: -30px;
+        right: -30px;
+        border-radius: 50%;
+    }
+
+    .box-border-radius::after {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: pink solid 1px;
+        position: absolute;
+        bottom: -70px;
+        right: -60px;
+        border-radius: 50%;
+    }
+
+    .box-border-radius2 {
+        width: 400px;
+        height: 400px;
+        background-color: white;
+        transition: 3s;
+    }
+
+    .box-border-radius2:hover {
+        transform: rotate(120deg);
+    }
+
+
+    .box-border-radius2 > div {
+        margin: 10px;
+        float: left;
+        width: 180px;
+        height: 180px;
+
+    }
+
+    .box-border-radius2 > div:nth-child(1), .box-border-radius2 > div:nth-child(4) {
+        border-radius: 0 60%;
+    }
+
+    .box-border-radius2 > div:nth-child(2), .box-border-radius2 > div:nth-child(3) {
+        border-radius: 60% 0;
+    }
+
+
+</style>
+<body>
+
+<!-- resize -->
+<div class="box"></div>
+
+<!-- border-radius -->
+<div class="box-border-radius">
+    欢迎来到美好世界！！！
+</div>
+
+<div class="box-border-radius2">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+
+
+</body>
+</html>

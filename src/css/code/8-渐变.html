@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+
+        .box {
+            width: 200px;
+            height: 100px;
+            margin: 10px auto;
+        }
+
+        .box {
+            /*background: linear-gradient(blue, pink);*/
+            /*background: linear-gradient(to top left, blue, pink);*/
+            /*background: linear-gradient(120deg, blue, pink);*/
+            /*background: linear-gradient(to left, lime 28px, red 77%, cyan);*/
+
+            background: linear-gradient(to right, transparent, mistyrose),
+            url("https://mdn.mozillademos.org/files/15525/critters.png");
+        }
+
+        .box2 {
+            margin: 10px auto;
+            width: 50px;
+            height: 300px;
+            border: deeppink solid 1px;
+            overflow: hidden;
+        }
+
+        .box2-item {
+            height: 500px;
+            background: repeating-linear-gradient(-49deg, black 0, black 10px, white 10px, white 20px);
+        }
+
+        .box3 {
+            width: 300px;
+            height: 300px;
+            margin: 10px auto;
+
+            /*background: radial-gradient(closest-side, pink, orange, deeppink);*/
+            background: radial-gradient(ellipse at top, #e66465, transparent),
+            radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="box"></div>
+
+
+<!-- 发廊灯 -->
+<div class="box2">
+    <div class="box2-item"></div>
+</div>
+
+
+<div class="box3"></div>
+
+<script>
+    window.onload = function () {
+
+        var box2 = document.querySelector('.box2-item');
+
+        var temp = 0;
+
+        setInterval(function () {
+            ++temp;
+
+            if (temp === 200) {
+                temp = 0;
+            }
+
+            box2.style.marginTop = -temp + 'px';
+
+        }, 1000 / 60)
+
+    }
+</script>
+</body>
+</html>

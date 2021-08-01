@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .container {
+            width: 50px;
+            height: 50px;
+            /*border: 1px solid deeppink;*/
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+            border-radius: 50%;
+
+        }
+
+        .item {
+            height: 100%;
+        }
+
+        .item > img {
+            margin: 4px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 50%;
+        }
+
+
+        #home {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background: url(../images/home.png) no-repeat;
+            border-radius: 100%;
+            transition: 1s;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="item">
+        <img src="../images/clos.png" alt=""/>
+        <img src="../images/full.png" alt=""/>
+        <img src="../images/open.png" alt=""/>
+        <img src="../images/prev.png" alt=""/>
+        <img src="../images/refresh.png" alt=""/>
+    </div>
+
+    <div id="home" class="home">
+
+    </div>
+</div>
+
+
+<script>
+
+    window.onload = function () {
+
+        var home = document.querySelector('#home');
+        var images = document.querySelectorAll('.item > img');
+        var flag = true;
+        var c = 140;
+
+        home.onclick = function () {
+
+            if (flag) {
+
+                this.style.transform = 'rotate(-720deg)'
+
+                for (let i = 0; i < images.length; i++) {
+
+                    images[i].style.transition = '1s ' + (i * 0.12) + 's';
+                    images[i].style.transform = 'rotate(720deg)';
+                    images[i].style.left = -getPoint(c, 90 * i / (images.length - 1)).left + 'px';
+                    images[i].style.top = -getPoint(c, 90 * i / (images.length - 1)).top + 'px';
+
+                }
+
+            } else {
+                this.style.transform = 'rotate(0)';
+
+                for (let i = 0; i < images.length; i++) {
+                    images[i].style.transition = '1s ' + ((images.length - 1 - i) * 0.12) + 's';
+                    images[i].style.transform = 'rotate(0)';
+                    images[i].style.left = '0px';
+                    images[i].style.top = '0px';
+
+                }
+            }
+
+            flag = !flag;
+        }
+
+
+        for (var i = 0; i < images.length; i++) {
+            images[i].onclick = function () {
+                this.style.transition = "1s ";
+                this.style.transform = "rotate(-360deg) scale(2)";
+                this.style.opacity = 0.1;
+
+                this.addEventListener("transitionend", fn)
+            }
+        }
+
+        function fn() {
+            this.style.transition = "0.8s ";
+            this.style.transform = "rotate(-360deg) scale(1)";
+            this.style.opacity = 1;
+
+            this.removeEventListener("transitionend", fn);
+        }
+
+
+        // 已知第三边 和 一个角
+        function getPoint(c, deg) {
+            var x = Math.round(c * Math.sin(deg * Math.PI / 180));
+            var y = Math.round(c * Math.cos(deg * Math.PI / 180));
+            return {left: x, top: y};
+        }
+
+    }
+</script>
+</body>
+</html>

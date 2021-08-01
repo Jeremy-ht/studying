@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+
+    .box {
+        margin: 40px auto;
+
+        width: 200px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: #f90;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        line-height: 50px;
+        position: relative;
+    }
+
+
+    .box::after {
+        content: "";
+        border: 5px transparent solid;
+        border-left-color: #f90;
+        width: 0;
+        height: 0;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin-top: -5px;
+
+
+    }
+
+    .box2 {
+        margin: 40px auto;
+
+        width: 200px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: #fff;;
+        color: #f90;
+        border: 2px #f90 solid;
+        font-size: 18px;
+        text-align: center;
+        line-height: 50px;
+        position: relative;
+    }
+
+    .box2::after {
+        content: "";
+        border: 5px solid transparent;
+        border-left-color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin-top: -5px;
+    }
+
+    .box2::before {
+        content: "";
+        border: 5px solid transparent;
+        border-left-color: #f90;
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin: -5px 0 0 2px;
+    }
+
+
+    .box3 {
+        margin: 40px auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        background-color: #fff;
+        border: 3px solid #3c9;
+        padding: 5px;
+        position: relative;
+    }
+
+    .box4 {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        background-image: linear-gradient(to bottom, #af8 13%, #3c9 91%);
+    }
+
+    .box4::before {
+        position: absolute;
+        left: 50%;
+        bottom: 5px;
+        z-index: 9;
+        margin-left: -100px;
+        margin-bottom: 0;
+        border-radius: 100%;
+        width: 200px;
+        height: 200px;
+        background-color: #09f;
+        content: "";
+        animation: rotate 10s linear -5s infinite;
+    }
+
+
+    .box-nth-child {
+        /*margin: 10px auto;*/
+    }
+
+
+    /* 前3名 */
+    .box-nth-child ul li:nth-child(-n+3){
+        color: deeppink;
+    }
+</style>
+
+<body>
+
+
+<div class="box">iCSS</div>
+
+<div class="box2">iCSS</div>
+
+
+<div class="box3">
+    <!--    <div class="box4"></div>-->
+</div>
+
+<div class="box-nth-child">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+</div>
+
+</body>
+</html>

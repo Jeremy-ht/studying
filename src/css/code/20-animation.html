@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 1100px;
+            height: 100%;
+            border: 1px solid deeppink;
+            border-radius: 10px;
+            margin: 10px auto;
+            padding: 20px;
+        }
+
+        .title {
+            width: 100%;
+            height: 60px;
+            margin-left: 20px;
+        }
+
+        .title .title-btn {
+            width: 180px;
+            height: 40px;
+            background-color: #cc0000;
+            border-radius: 5px;
+            color: white;
+            font-size: 20px;
+            line-height: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .title .title-btn:after {
+            content: '';
+            border: 6px solid transparent;
+            width: 0;
+            height: 0;
+            border-left-color: #cc0000;
+            position: absolute;
+            left: 100%;
+            top: 16px;
+
+
+        }
+
+
+        .item {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            background-color: #f3f3f3;
+            border-radius: 6px;
+            float: left;
+            margin: 20px;
+        }
+
+        .common-div-size {
+            width: 100px;
+            height: 100px;
+            margin: 18px auto;
+            background-color: #1A1E23;
+        }
+
+        .common-btn {
+            width: 100px;
+            height: 28px;
+            position: absolute;
+            left: calc(50% - 50px);
+            bottom: 10px;
+            color: #f90;
+            border: 1px #f90 solid;
+            font-size: 18px;
+            text-align: center;
+            line-height: 28px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+
+        @keyframes scle-move-box1 {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        @keyframes scle-move-box2 {
+            from {
+                transform: scaleY(0);
+            }
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        @keyframes scle-move-box3 {
+            from {
+                transform: scale(.3);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .container .item:nth-of-type(5) {
+            perspective: 100px;
+            transform-style: preserve-3d;
+
+        }
+
+        @keyframes scle-move-box4 {
+            from {
+                transform: translateZ(600px);
+            }
+            to {
+                transform: translateZ(0);
+            }
+        }
+
+        @keyframes scle-move-box5 {
+
+            from {
+                transform: scale(.3) rotate(0);
+            }
+            to {
+                transform: scale(1) rotate(360deg);
+            }
+        }
+
+        .box-6, .box-7 {
+            border-radius: 50%;
+        }
+
+        @keyframes scle-move-box6 {
+            from {
+                transform: translateY(-600px);
+                opacity: 0;
+
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+
+            }
+        }
+
+        @keyframes scle-move-box7 {
+            0% {
+                transform: translateY(-600px);
+                animation-timing-function: ease-in;
+            }
+            30% {
+                transform: translateY(0);
+                animation-timing-function: ease-out;
+            }
+            50% {
+                transform: translateY(-90px);
+                animation-timing-function: ease-in;
+            }
+            65% {
+                transform: translateY(0);
+                animation-timing-function: ease-out;
+            }
+            80% {
+                transform: translateY(-50px);
+                animation-timing-function: ease-in;
+            }
+            90% {
+                transform: translateY(0px);
+                animation-timing-function: ease-out;
+            }
+            93% {
+                transform: translateY(-28px);
+                animation-timing-function: ease-in;
+            }
+            96% {
+                transform: translateY(0px);
+                animation-timing-function: ease-in;
+            }
+            99% {
+                transform: translateY(-16px);
+                animation-timing-function: ease-out;
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="title">
+
+        <div class="title-btn">animation</div>
+
+    </div>
+
+    <div class="item">
+        <div class="box-1 common-div-size"></div>
+        <div onclick="clickBtn(1)" class="btn-1 common-btn">start</div>
+    </div>
+
+    <div class="item">
+        <div class="box-2 common-div-size"></div>
+        <div onclick="clickBtn(2)" class="btn-2 common-btn">start</div>
+    </div>
+
+    <div class="item">
+        <div class="box-3 common-div-size"></div>
+        <div onclick="clickBtn(3)" class="btn-3 common-btn">start</div>
+    </div>
+
+    <div class="item">
+        <div class="box-4 common-div-size"></div>
+        <div onclick="clickBtn(4)" class="btn-4 common-btn">start</div>
+    </div>
+
+    <div class="item">
+        <div class="box-5 common-div-size"></div>
+        <div onclick="clickBtn(5)" class="btn-5 common-btn">start</div>
+    </div>
+
+    <div class="item">
+        <div class="box-6 common-div-size"></div>
+        <div onclick="clickBtn(6)" class="btn-6 common-btn">start</div>
+    </div>
+
+    <div class="item">
+        <div class="box-7 common-div-size"></div>
+        <div onclick="clickBtn(7)" class="btn-7 common-btn">start</div>
+    </div>
+
+    <div class="item">
+        <div class="box-8 common-div-size"></div>
+        <div onclick="clickBtn(8)" class="btn-8 common-btn">start</div>
+    </div>
+
+    <div class="item">
+        <div class="box-9 common-div-size"></div>
+        <div onclick="clickBtn(9)" class="btn-9 common-btn">start</div>
+    </div>
+
+    <div class="item">
+        <div class="box-10 common-div-size"></div>
+        <div onclick="clickBtn(10)" class="btn-10 common-btn">start</div>
+    </div>
+
+</div>
+
+
+<script>
+
+    function clickBtn(index) {
+
+        // 清除样式
+        let allDiv = document.querySelectorAll('.common-div-size');
+        for (let i = 0; i < allDiv.length; i++) {
+            allDiv[i].style.removeProperty('animation');
+        }
+
+
+        setTimeout(function () {
+
+            switch (index) {
+
+                case 1:
+                    let box1 = document.querySelector('.box-' + index);
+                    box1.style.animation = `scle-move-box${index} 0.6s both`;
+                    break;
+
+                case 2:
+                    let box2 = document.querySelector('.box-' + index);
+                    box2.style.animation = `scle-move-box${index} 0.6s both`;
+                    break;
+
+                case 3:
+                    let box3 = document.querySelector('.box-' + index);
+                    box3.style.animation = `scle-move-box${index} 0.8s both`;
+                    break;
+
+                case 4:
+                    let box4 = document.querySelector('.box-' + index);
+                    box4.style.animation = `scle-move-box${index} 0.4s both`;
+                    break;
+
+                case 5:
+                    let box5 = document.querySelector('.box-' + index);
+                    box5.style.animation = `scle-move-box${index} 0.8s both`;
+                    break;
+
+                case 6:
+                    let box6 = document.querySelector('.box-' + index);
+                    box6.style.animation = `scle-move-box${index} .7s both`;
+                    break;
+
+                case 7:
+                    let box7 = document.querySelector('.box-' + index);
+                    box7.style.animation = `scle-move-box${index} .7s both`;
+                    break;
+
+            }
+
+        }, 1)
+
+    }
+
+</script>
+
+</body>
+</html>
