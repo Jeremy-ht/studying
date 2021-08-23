@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/less">
+
+      @pink: pink;
+
+      .wrap {
+        width: 400px;
+        height: 400px;
+        border: 1px solid deeppink;
+        margin: 200px auto;
+
+        .box {
+          // 看不见我
+          /*看得见*/
+          width: 100px;
+          height: 100px;
+          background-color: @pink;
+
+          &:hover {
+            background-color: #cc0000;
+          }
+
+        }
+      }
+
+    </style>
+
+</head>
+<body>
+<div class="wrap">
+    <div class="box"></div>
+</div>
+
+
+<script src="../less.min.js"></script>
+</body>
+</html>

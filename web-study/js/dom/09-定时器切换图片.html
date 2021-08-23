@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #lbt {
+        width: 540px;
+        height: 400px;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: lightpink;
+        border-radius: 6px;
+        text-align: center;
+    }
+
+    #action {
+        margin: 20px 20px;
+    }
+
+
+</style>
+<body>
+
+<div id="lbt">
+    <img id="image" src="../../image/1.jpg" width="500" height="332" alt=""/>
+
+    <button id="action">开始</button>
+    <button id="stop">停止</button>
+</div>
+
+
+<script>
+
+    window.onload = function () {
+
+        // 图片
+        let imageArr = [
+            '../../image/1.jpg',
+            '../../image/2.jpg',
+            '../../image/3.jpg',
+            '../../image/4.jpg',
+            '../../image/5.jpg'
+        ];
+
+
+        let prevBtn = document.getElementById('action');
+        let nextBtn = document.getElementById('stop');
+
+        let index = 0;
+        let image = document.getElementsByTagName('img')[0];
+
+        let timer;
+        prevBtn.onclick = function () {
+
+            clearInterval(timer)
+
+            timer = setInterval(function () {
+
+                index++;
+
+                index %= imageArr.length;
+
+                image.src = imageArr[index];
+
+            }, 1500);
+
+        };
+
+        nextBtn.onclick = function () {
+            clearInterval(timer)
+
+        };
+
+    }
+</script>
+</body>
+</html>

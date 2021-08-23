@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrap {
+            width: 300px;
+            height: 300px;
+
+            border: 10px solid pink;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+
+</div>
+
+
+<script>
+    // console.log(document.documentElement.clientWidth, document.documentElement.clientHeight);
+    // console.log(document.documentElement.offsetWidth, document.documentElement.offsetHeight);
+
+
+    window.onload = function () {
+
+        let wrapNode = document.querySelector('.wrap');
+
+        console.log(wrapNode.clientWidth);  // 300
+        console.log(wrapNode.clientHeight); // 300
+
+        console.log(wrapNode.clientLeft); // 10 左边框宽度
+        console.log(wrapNode.clientTop); // 10
+
+    }
+
+
+</script>
+</body>
+</html>

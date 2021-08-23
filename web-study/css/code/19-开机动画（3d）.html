@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .box {
+            height: 100%;
+            position: relative;
+            perspective: 300px;
+        }
+
+        .inner {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            font-size: 80px;
+            white-space: nowrap;
+            transform-style: preserve-3d;
+            animation: move 3s linear infinite;
+        }
+
+
+        @keyframes move {
+            from {
+                transform: translate3d(-50%, -50%, 0) rotateY(0);
+            }
+            to {
+                transform: translate3d(-50%, -50%, 0) rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="inner">
+        <img src="../images/anta.png" alt=""/>
+
+    </div>
+</div>
+
+<script>
+
+    window.onload = function () {
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: deeppink;
+
+        }
+    </style>
+</head>
+
+<body style=" height: 2000px;">
+
+<div id="box">
+
+</div>
+
+<script>
+    window.onload = function () {
+
+        var box = document.getElementById('box');
+
+        box.onmousewheel = function (event) {
+
+            event = event || window.event;
+
+            if (event.wheelDelta > 0 || event.detail < 0) {
+                box.style.height = box.clientHeight + 10 + "px";
+            } else {
+                box.style.height = box.clientHeight - 10 + "px";
+            }
+
+            event.preventDefault && event.preventDefault();
+            return false;
+        }
+
+
+    }
+</script>
+</body>
+</html>

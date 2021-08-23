@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            margin: 10px auto;
+            background-color: deeppink;
+            transition-property: width, border-radius;
+            transition-duration: 3s;
+        }
+
+        .box:hover {
+            width: 300px;
+            border-radius: 20px;
+        }
+
+        a {
+            margin: 200px auto;
+            text-decoration: none;
+            color: white;
+            display: inline-block;
+            width: 68px;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+            background: gray;
+            border: 1px solid black;
+            font-size: 18px;
+            box-shadow: 3px 2px 2px black;
+
+            transition:800ms;
+            border-radius: 5px;
+
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+
+        }
+
+        a:hover {
+            color: black;
+            background-color: white;
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="box"></div>
+
+<!--按钮高亮-->
+<a href="javascrip:;" class="box-btn">Home</a>
+
+</body>
+</html>

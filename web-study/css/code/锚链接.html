@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        text-align: center;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .show {
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        border: 1px solid black;
+        line-height: 100px;
+        font-size: 40px;
+    }
+
+    .show-in {
+        width: 100px;
+        height: 100px;
+    }
+
+    #one {
+        background-color: lightgreen;
+    }
+
+    #two {
+        background-color: lightyellow;
+    }
+
+    #three {
+        background-color: lightblue;
+    }
+
+    #four {
+        background-color: pink;
+    }
+
+    .con {
+        margin: 10px 0 0 10px;
+        width: 100px;
+    }
+
+    .con-in {
+        display: inline-block;
+        width: 16px;
+        line-height: 16px;
+        border: 1px solid black;
+        background-color: gray;
+    }
+</style>
+<body>
+
+<div class="box">
+    <ul class="show">
+        <li class="show-in" id="one">1</li>
+        <li class="show-in" id="two">2</li>
+        <li class="show-in" id="three">3</li>
+        <li class="show-in" id="four2">4</li>
+    </ul>
+    <nav class="con">
+        <a class="con-in" href="#one">1</a>
+        <a class="con-in" href="#two">2</a>
+        <a class="con-in" href="#three">3</a>
+        <a class="con-in" href="#four2">4</a>
+    </nav>
+</div>
+
+</body>
+</html>

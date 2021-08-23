@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #box {
+            width: 0;
+            height: 20px;
+            border-radius: 10px;
+            background-color: deeppink;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="box">
+    0%
+</div>
+
+<button id="btn">go</button>
+
+<script>
+    window.onload = function () {
+        var btn = document.getElementById('btn');
+        var box = document.getElementById('box');
+
+        btn.onclick = function () {
+
+            var timer;
+            box.style.width = 0 + 'px';
+            clearInterval(timer);
+            timer = setInterval(function () {
+
+                if (parseInt(box.style.width) < 500) {
+                    box.style.width = parseInt(box.style.width) + 5 + 'px';
+                    box.innerHTML = parseInt(box.style.width) / 5 + '%';
+                } else {
+                    clearInterval(timer);
+                }
+
+            }, 16);
+
+        }
+    }
+</script>
+</body>
+</html>

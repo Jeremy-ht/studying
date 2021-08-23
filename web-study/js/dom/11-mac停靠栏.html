@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #wrap {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+
+        }
+
+        #wrap > img {
+            width: 64px;
+            /*font-size: 0;*/
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <img src="../images/1.png" alt="">
+    <img src="../images/2.png" alt="">
+    <img src="../images/3.png" alt="">
+    <img src="../images/4.png" alt="">
+    <img src="../images/5.png" alt="">
+</div>
+
+<script>
+    window.onload = function () {
+
+        let r = 640;
+
+        let images = document.querySelectorAll("#wrap > img");
+
+        document.onmousemove = function (ev) {
+            ev = ev || event;
+
+            for (let i = 0; i < images.length; i++) {
+
+                let a = images[i].getBoundingClientRect().left + images[i].offsetWidth - ev.clientX;
+                let b = images[i].getBoundingClientRect().top + images[i].offsetHeight - ev.clientY;
+
+                let c = Math.sqrt(a * a + b * b);
+
+                if (c >= r) {
+                    c = r;
+                }
+
+                images[i].style.width = 128 - c * 0.1 + 'px';
+
+            }
+        }
+    }
+</script>
+</body>
+</html>

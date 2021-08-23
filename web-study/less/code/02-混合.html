@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/less">
+
+        .juzhong(@w:200px;@h:200px;@bc:pink) {
+          width: @w;
+          height: @h;
+          background-color: @bc;
+        }
+
+
+        .wrap {
+            .juzhong(400px, 400px, black);
+          margin: 200px auto;
+
+          .box {
+              .juzhong(@bc:deeppink);
+            margin: 100px auto;
+          }
+
+        }
+
+        .sjx {
+
+          width: 0;
+          height: 0;
+          border: 20px solid transparent;
+
+          border-left-color: deeppink;
+
+        }
+    </style>
+
+
+    <script src="../less.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <div class="box"></div>
+</div>
+
+<div class="sjx"></div>
+</body>
+</html>

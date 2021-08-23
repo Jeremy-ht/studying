@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #box{
+        width:100px;
+        height: 100px;
+        position: absolute;
+        background-color: deeppink;
+    }
+
+</style>
+<body>
+
+<div id="box">
+</div>
+
+<script>
+
+    window.onload = function (){
+
+        var box = document.getElementById('box');
+
+        // 鼠标按下
+        box.onmousedown = function (event){
+
+            // 解决鼠标问题
+            event = event || window.event;
+            var ol = event.clientX - box.offsetLeft;
+            var ot = event.clientY - box.offsetTop;
+
+            document.onmousemove = function (event){
+                event = event || window.event;
+                var left = event.clientX - ol;
+                var top = event.clientY - ot;
+
+                box.style.left = left + 'px';
+                box.style.top = top + 'px';
+
+            }
+
+            // 鼠标松开
+            document.onmouseup = function (){
+
+                document.onmousemove = null;
+                document.onmousedown = null;
+
+            }
+
+        }
+
+    }
+
+</script>
+</body>
+</html>

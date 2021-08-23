@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #lbt {
+        width: 540px;
+        height: 400px;
+        margin: 20px auto;
+        padding: 10px;
+        background-color: lightpink;
+        border-radius: 6px;
+        text-align: center;
+    }
+
+    #prev {
+        margin: 20px 20px;
+    }
+
+
+</style>
+<body>
+
+<div id="lbt">
+    <img id="image" src="../../image/1.jpg" width="500" height="332"/>
+
+    <div id="info"></div>
+
+
+
+    <button id="prev">上一张</button>
+    <button id="next">下一张</button>
+
+</div>
+
+
+<script>
+
+    window.onload = function () {
+
+        // 图片
+        let imageArr = [
+            '../..//image/1.jpg',
+            '../../image/2.jpg',
+            '../../image/3.jpg',
+            '../../image/4.jpg',
+            '../../image/5.jpg'
+        ];
+
+
+        let prevBtn = document.getElementById('prev');
+        let nextBtn = document.getElementById('next');
+
+        let index = 0;
+        let image = document.getElementsByTagName('img')[0];
+        let length = imageArr.length - 1;
+
+        let info = document.getElementById('info');
+        info.innerText = "第" + (index + 1) + "页, 共" + (length + 1) + "页";
+
+        prevBtn.onclick = function () {
+
+            index--;
+            if (index < 0) {
+                index = length;
+            }
+
+            image.src = imageArr[index];
+            info.innerText = "第" + (index + 1) + "页, 共" + (length + 1) + "页";
+        };
+
+        nextBtn.onclick = function () {
+            index++;
+            if (index > length) {
+                index = 0;
+            }
+
+            image.src = imageArr[index];
+            info.innerText = "第" + (index + 1) + "页, 共" + (length + 1) + "页";
+        };
+
+
+    }
+
+
+</script>
+</body>
+</html>

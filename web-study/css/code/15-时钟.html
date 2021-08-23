@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 1px solid;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul > li {
+            width: 2px;
+            height: 6px;
+            background: black;
+            position: absolute;
+            left: 99px;
+            transform-origin: 0 100px;
+        }
+
+        ul > li:nth-child(5n+ 1) {
+            height: 12px;
+            background-color: lightseagreen;
+        }
+
+        #wrap > .hour {
+            width: 6px;
+            height: 30px;
+            background: black;
+
+            position: absolute;
+            left: 96px;
+            top: 67px;
+
+            transform-origin: center bottom;
+
+        }
+
+
+        #wrap > .min {
+            width: 4px;
+            height: 40px;
+            background: gray;
+            position: absolute;
+            left: 97px;
+            top: 57px;
+
+            transform-origin: center bottom;
+
+        }
+
+        #wrap > .sec {
+            width: 2px;
+            height: 60px;
+            background: red;
+            position: absolute;
+            left: 98px;
+            top: 39px;
+
+            transform-origin: center bottom;
+        }
+
+        #wrap > .ico {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: pink;
+            position: absolute;
+            left: 89px;
+            top: 89px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+
+    <ul>
+    </ul>
+
+    <div class="hour"></div>
+    <div class="min"></div>
+    <div class="sec"></div>
+    <div class="ico"></div>
+
+</div>
+
+<script>
+    window.onload = function () {
+        var ulNode = document.querySelector('#wrap > ul');
+        var hour = document.querySelector('#wrap > .hour');
+        var min = document.querySelector('#wrap > .min');
+        var sec = document.querySelector('#wrap > .sec');
+        var liStyle = document.createElement('style');
+
+        var liHtml = '';
+        var cssText = '';
+
+        for (let i = 0; i < 60; i++) {
+            liHtml += `<li></li>`;
+            cssText += `ul > li:nth-child(${i + 1}) { transform: rotate(${i * 6}deg);}`;
+
+        }
+
+        ulNode.innerHTML = liHtml;
+        liStyle.innerHTML = cssText;
+        document.head.appendChild(liStyle);
+
+        fun()
+
+        setInterval(fun, 1000);
+
+        function fun() {
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+
+            sec.style.transform = `rotate(${seconds * 6}deg)`;
+            min.style.transform = `rotate(${minutes * 6}deg)`;
+            hour.style.transform = `rotate(${360 / 12 * hours}deg)`;
+
+        }
+
+
+    }
+</script>
+</body>
+</html>

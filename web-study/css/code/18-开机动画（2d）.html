@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .box {
+            height: 100%;
+            position: relative;
+        }
+
+        .inner {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            font-size: 80px;
+            white-space: nowrap;
+        }
+
+        .inner > span {
+            position: relative;
+            /*animation: move 1s alternate infinite;*/
+        }
+
+        @keyframes move {
+            from {
+                top: 20px;
+            }
+            to {
+                top: -40px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="inner">
+        <span>你</span>
+        <span>真</span>
+        <span>的</span>
+        <span>好</span>
+        <span>帅</span>
+        <span>啊</span>
+        <span>！</span>
+    </div>
+</div>
+
+<script>
+
+
+    window.onload = function () {
+
+        let spanNode = document.querySelectorAll('span');
+        let colorArr = ['red', 'pink', 'blue', 'orange', 'deeppink', 'yellow', 'green'];
+        for (let i = 0; i < spanNode.length; i++) {
+            spanNode[i].style.animation = `move .3s ${i * 50}ms alternate infinite`
+            spanNode[i].style.color = colorArr[i];
+        }
+
+    }
+</script>
+</body>
+</html>

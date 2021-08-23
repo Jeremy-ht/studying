@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .navList a:hover{
+        background-color: #c00;
+    }
+    .navList a{
+        width: 100%;
+        text-decoration: none;
+        padding: 5px 0;
+        color: white;
+        font-weight: 600;
+        display: block;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .navList li{
+        list-style: none;   /* 去除li小黑点 */
+        float: left;
+        width: 25%;
+    }
+
+    .navList{
+        background-color: #6495ED;
+        width:1000px;
+        overflow: hidden;    /* 解决li浮动后高度塌陷 */
+        margin: 20px auto;
+    }
+
+</style>
+<body>
+
+<ul class="navList">
+    <li><a>首页</a></li>
+    <li><a>社会</a></li>
+    <li><a>新闻</a></li>
+    <li><a>体育</a></li>
+</ul>
+
+</body>
+</html>
