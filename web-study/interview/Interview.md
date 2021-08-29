@@ -15,3 +15,7 @@
 
 # apply、call、bind
 - https://segmentfault.com/a/1190000018017796
+
+# 原型
+
+# 原型链
