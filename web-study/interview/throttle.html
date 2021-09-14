@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<input class="input">
+
+<script>
+  const inp = document.querySelector('.input')
+
+  inp.onkeyup = throttle(check, 1500)
+
+  function check () {
+    if (this.value.length > 5) {
+      console.log('ok')
+    } else {
+      console.log('not ok')
+    }
+  }
+
+  function throttle (func, wait) {
+    let timeout, context, args
+    let begin = new Date().getTime()
+    clearTimeout(timeout)
+    return function () {
+      context = this
+      args = arguments
+      const end = new Date().getTime()
+      if (end - begin > wait) {
+        func.apply(context, args)
+        begin = end
+      }
+
+    }
+  }
+</script>
+</body>
+</html>

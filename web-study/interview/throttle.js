@@ -1,6 +1,5 @@
 // 第一次会触发，最后不会触发
-/*
-function throttle(func, wait) {
+/*function throttle(func, wait) {
     let context, args
     let old = 0
     return function () {
@@ -13,8 +12,7 @@ function throttle(func, wait) {
         }
 
     }
-}
-*/
+}*/
 
 // 第一次不会触发，最后会触发
 function throttle(func, wait) {
