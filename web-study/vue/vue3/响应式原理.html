@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let person = {
+        name: '张三',
+        age: 18
+    }
+
+    // let p = {}
+    //
+    // Object.defineProperty(p, 'name', {
+    //     get() {
+    //         return person.name
+    //     },
+    //     set(value) {
+    //         person.name = value
+    //     }
+    // })
+
+    console.log(window.Proxy)
+    let p = new Proxy(person, {
+        get(target, p) {
+            return Reflect.get(target, p)
+        },
+        set(target, p, value) {
+            return Reflect.set(target, p, value)
+        },
+        deleteProperty(target, p) {
+            return Reflect.deleteProperty(target, p)
+        }
+    })
+</script>
+
+</body>
+</html>
