@@ -1,0 +1,11 @@
+{
+  "exclude": [
+    "node_modules",
+    "./doc/**/*"
+  ],
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "ES2015",
+    "outDir": "./dist"
+  }
+}
