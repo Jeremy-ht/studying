@@ -650,7 +650,7 @@ filter:alpha(opacity=50);
 
 
 
-### display: none`与`visibility: hidden的区别
+### display: none `与` visibility: hidden的区别
 
 ```css
 1、display: none的元素不占据任何空间，visibility: hidden的元素空间保留；
