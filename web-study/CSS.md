@@ -12,12 +12,12 @@
 
 ```css
 # box-shadow: (h-shadow v-shadow blur spread color inset)+;		/* 盒子阴影(IE8-不支持) */
-    - inset:    内部阴影(可选)  	
     - h-shadow: 水平阴影位置(必须)
     - v-shadow: 垂直阴影位置(必须)
     - blur:     模糊距离(可选)
     - spread:   阴影尺寸(可选)
-    - color:    阴影颜色，默认和文本颜色一致(可选)  
+    - color:    阴影颜色，默认和文本颜色一致(可选) 
+    - inset:    内部阴影(可选)  	
 
 /* 注意 */
     1、可以使用多重阴影，但使用过多会造成性能差
