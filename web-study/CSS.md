@@ -1,6 +1,6 @@
 # css
 
-
+https://mp.weixin.qq.com/s/zu7VtGBE4GL9SQ8qL-YeSw
 
 ## 盒模型
 
@@ -1012,7 +1012,13 @@ text-align-last: justify;
     pre-wrap：不合并空白符，允许换行符换行和文本自动换行；
 ```
 
+fetchAPI 中 响应格式
 
+用fetch来获取数据，如果响应正常返回，我们首先看到的是一个response对象，其中包括返回的一堆原始字节，这些字节需要在收到后，需要我们通过调用方法将其转换为相应格式的数据，比如JSON，BLOB或者TEXT等等
+
+## word-break
+
+换行
 
 
 
@@ -1681,142 +1687,10 @@ animation-name: move;
 
 
 
+# pc注意事项
 
-
-
-
-
-
-```js
-•••超出DIV溢出隐藏		
-		https://blog.csdn.net/xiaodouya87/article/details/50084651
-
-		
-•••calc() 函数:
-		width: calc(100% - 20px);
-		- css3 的 calc()函数。这里的意思是设置宽度比100%的宽度少20px。
-		- calc()函数用于动态计算长度值。
-		- calc()函数支持 "+", "-", "*", "/" 运算；
-		- calc()函数使用标准的数学运算优先级规则；
-		
-•••水平垂直居中：
-	1. display: flex;
-	   margin: auto;
-
-	2. display: grid;
-	   place-items: center;
-	   
-
-
-•••列表的 marker 属性：小圆点的颜色
-	li::marker {
-		color: #ccc;
-	}
-	
-	或者使用伪类
-	
-	li::before {
-		content: "•";
-		color: #ccc;
-		margin-right: 0.5em;
-	}
-
-	
-•••css3 文字过长用...代替
-		white-space: nowrap;
-		text-overflow: ellipsis;
-		overflow: hidden;
-
-		
-•••CSS中:和:: 一个冒号是伪类，两个冒号是伪元素	https://blog.csdn.net/sinat_36146776/article/details/53138178
-		伪类
-			:link 			
-			伪类将应用于未被访问过的链接，与:visited互斥。
-			
-			:hover 			
-			伪类将应用于有鼠标指针悬停于其上的元素。
-			
-			:active 		
-			伪类将应用于被激活的元素，如被点击的链接、被按下的按钮等。
-			
-			:visited		
-			伪类将应用于已经被访问过的链接，与:link互斥。
-			
-			:focus 			
-			伪类将应用于拥有键盘输入焦点的元素。
-			
-			:first-child 	
-			伪类将应用于元素在页面中第一次出现的时候。
-			
-			:lang 			
-			伪类将应用于元素带有指定lang的情况。
-			
-			
-		伪元素
-			::first-letter
-			伪元素的样式将应用于元素文本的第一个字（母）。
-
-			::first-line
-			伪元素的样式将应用于元素文本的第一行。
-			
-			::before
-			在元素内容的最前面添加新内容。
-
-			::after
-			在元素内容的最后面添加新内容。
-
-			
-•••box-shadow 添加阴影
-			box-shadow: x轴偏移 y轴偏移 模糊距离 阴影颜色 阴影开始方向（默认是从里往外，设置inset就是从外往里）
-			box-shadow: 10px 10px 5px #888888 inset; 
-
-
-•••background-image	添加背景图片
-			background-image: url, 定位, 平铺
-
-
-•••background-size	指定背景图像的大小。CSS3以前，背景图像大小由图像的实际大小决定
-			background-size: 宽 高
-
-			
-CSS3文本效果
-•••text-shadow 文本阴影
-			text-shadow: 水平阴影，垂直阴影，模糊的距离，阴影的颜色、
-			text-shadow: 5px 5px 5px #FF0000;
-
-•••text-overflow 指定应向用户如何显示溢出内容
-			text-overflow: clip|ellipsis|string;
-			clip： 修剪文本
-			ellipsis：显示省略符号来代表被修剪的文本
-			string：使用给定的字符串来代表被修剪的文本
-
-•••word-wrap 自动换行属性允许您强制文本换行 - 即使这意味着分裂它中间的一个字
-			word-wrap: normal|break-word;
-			normal：只在允许的断字点换行（浏览器保持默认处理）
-			break-word：在长单词或 URL 地址内部进行换行
-
-•••outline-offset 简单来说就是在边框 border 外面又加了一层
-			outline-offset: length|inherit		轮廓与边框边缘的距离。| 规定应从父元素继承 outline-offset 属性的值。
-
-			
-CSS3 媒体查询
-•••@media 媒体查询 很多就是用来进行响应式开发了		https://blog.csdn.net/gtlishujie/article/details/81975157
-			@media 媒体类型 and (条件) 
-			{
-			
-			}
-
-•••a 标签属性	
-	href属性：规定链接指向的页面的 URL。    
-	target属性：_blank 新窗口打开链接
-	text-decoration:none 删除下划线
-
-边距：
-•••margin:上 右 下 左 (顺时针);(4)		margin:上 左右 下;(3)		margin:上下 左右;(2)	margin:上下左右;(1)
-
-```
-
-
+1. 页面最上层按钮，前面需要加上icon
+2. 空白页需要统一
 
 
 
