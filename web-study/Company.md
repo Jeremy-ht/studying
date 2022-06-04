@@ -12,8 +12,6 @@ https://zhuanlan.zhihu.com/p/269727075
 
 
 
-- 
-- 
 - 阿里巴巴
 - 网易
 - 海康威视
@@ -102,7 +100,6 @@ https://zhuanlan.zhihu.com/p/269727075
       5、对vue、react、flutter等框架熟练者优先；
       6、有团队管理经验者优先。
   ```
-
 
 
 

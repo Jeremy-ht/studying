@@ -101,7 +101,6 @@ module.exports = {
       template: "./src/index.html"
     }),
   ],
-
   // 用来设置引用模块
   resolve: {
     extensions: [ '.ts', '.js' ]
@@ -110,5 +109,4 @@ module.exports = {
     port: 3020
   },
   target: 'web'
-
 };

@@ -44,7 +44,8 @@
 
     Notes:
         - forEach 无法跳出循环；for 和 for...of 可以使用 break 或者 continue 跳过或中断
-        - for...of 直接访问的是实际元素。for 遍历数组索引，forEach 回调函数参数更丰富，元素、索引、原数组都可以获取
+        - for...of 直接访问的是实际元素。for 遍历数组索引，forEach 回调函数参数更丰富，
+            元素、索引、原数组都可以获取
         - for...of 与 for 如果数组中存在空元素，同样会执行
         - 优先使用 for...of 和 forEach
 
