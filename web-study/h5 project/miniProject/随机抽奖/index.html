@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>随机抽奖</title>
+  <style>
+    .wrapper {
+      margin: 100px auto;
+      background-color: #fadd95;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      width: 500px;
+      height: 500px;
+    }
+
+    .options {
+      width: 320px;
+      height: 320px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .option {
+      width: 100px;
+      height: 100px;
+      box-sizing: border-box;
+      border: 1px solid #ff6600;
+      text-align: center;
+      line-height: 100px;
+      color: #ff6600;
+    }
+
+    .btn {
+      width: 300px;
+      height: 50px;
+      background: linear-gradient(180deg, #ffb46f 15.1%, #ef7d13);
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 8px 0 #d25f00;
+      font-size: 20px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="options">
+    <div class="option">随机矿石</div>
+    <div class="option">Bug</div>
+    <div class="option">贴纸</div>
+    <div class="option">毛巾</div>
+    <div class="option">Yoyo抱枕</div>
+    <div class="option">网易云月卡</div>
+    <div class="option">Click午睡枕</div>
+    <div class="option">字节保温杯</div>
+    <div class="option">Switch</div>
+  </div>
+  <div>
+    <button class="btn">抽 奖</button>
+  </div>
+</div>
+
+</body>
+<script>
+
+  const btn = document.querySelector('.btn');
+  let timer = null;
+  let count = 0;
+  btn.onclick = function () {
+    // 获取所有选项
+    const options = document.querySelectorAll('.option');
+    // 设置定时器
+    if (timer == null) {
+      timer = setInterval(() => {
+        count++;
+        // 获取随机数
+        const random = Math.round(Math.random() * (options.length - 1));
+        for (let i = 0; i < options.length; i++) {
+          options[i].style.backgroundColor = '#fadd95';
+        }
+        options[random].style.backgroundColor = '#c4c1c1';
+        if (count >= 30) {
+          clearInterval(timer);
+          timer = null;
+          count = 0;
+        }
+      }, 100)
+    }
+  }
+
+</script>
+</html>

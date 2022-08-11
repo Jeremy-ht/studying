@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>进度条</title>
+
+  <style>
+
+    #wrapper {
+      margin: 100px auto;
+      border: 2px solid #ff6600;
+      width: 600px;
+      height: 50px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    #content {
+      width: 0;
+      height: 100%;
+      background-color: #f16a6a;
+      border-radius: 6px;
+    }
+
+    #num {
+      position: absolute;
+      left: 50%;
+      top: 25%;
+      transform: translateX(-50%);
+      color: #403f3f;
+      font-size: 20px;
+    }
+
+    #btn {
+      position: absolute;
+      left: 50%;
+      bottom: -100%;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body>
+
+<div id="wrapper">
+  <div id="content"></div>
+  <div id="num">
+    <span id="content-num">0</span>
+    <span>%</span>
+  </div>
+
+  <button id="btn" onclick="action()">开始</button>
+</div>
+
+<script>
+
+  function action() {
+    let content = document.getElementById('content')
+    let num = document.getElementById('num')
+    let wrapper = document.getElementById('wrapper')
+    let btn = document.getElementById('btn')
+    let span = document.getElementById('content-num')
+    let count = 0
+    let timer = null
+
+    btn.disabled = true
+    timer = setInterval(() => {
+      count += 10
+      content.style.width = count + 'px'
+      span.innerText = Math.round(count / Number(wrapper.clientWidth) * 100)
+      if (count == wrapper.clientWidth) {
+        clearInterval(timer)
+      }
+    }, 50)
+  }
+</script>
+</body>
+</html>

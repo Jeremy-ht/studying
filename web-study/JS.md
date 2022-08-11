@@ -20,43 +20,43 @@
 
 
 
-## Array
+# Array
 
-- **push()**		
+- [Array - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
-  - 向数组的末尾添加一个或更多元素，并返回新的长度。
+```js
+Array.push()
+	向数组的末尾添加一个或更多元素，并返回新的长度
+Array.unshift()
+	向数组的开头添加一个或更多元素，并返回新的长度
+    
+Array.pop()
+	删除并返回数组的最后一个元素
+Array.shift()
+	删除并返回数组的第一个元素
 
-- **pop()**
+Array.indexOf()
+	返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1
+Array.lastIndexOf()
+	返回指定元素（也即有效的 JavaScript 值或变量）在数组中的最后一个的索引，如果不存在则返回 -1。
+    从数组的后面向前查找，从 fromIndex 处开始
 
-  - 删除并返回数组的最后一个元素
-
-- **shift()**
-  - 删除并返回数组的第一个元素
-  
-- **unshift()**
-
-  - 向数组的开头添加一个或更多元素，并返回新的长度。
+Array.slice(begin, end)
+	返回一个新的数组对象，这一对象是一个由 begin 和 end 决定的原数组的浅拷贝（包括 begin，不包括end），原始数组不会被改变
 
 
+```
 
-- **reverse()**
-- **sort()**
+- reverse()
+- sort()
 
 
 
-- **concat()**
+- concat()
 
   - 连接两个或更多的数组，并返回结果
 
-- **slice()**
-
-   ```javascript
-    # 从某个已有的数组返回选定的元素
-    slice(start,end)
-    返回一个新的数组，包含从 start 到 end （不包括该元素）的 arrayObject 中的元素。
-   ```
-
-- ##### splice()
+- #### splice()
 
   ```js
   # 删除	可以删除任意数量的项		需要2个参数
@@ -76,23 +76,6 @@
   	const arr = [1,2,3,4]
   	arr.splice(1,2,5,6,7)		// arr = [1,5,6,7,4]
   
-  ```
-
-
-
-- **indexOf()**
-
-- **lastIndexOf()**
-
-  ```js
-  # indexOf() 从头开始查找  lastIndexOf() 从末尾开始查找
-  
-  const numbers = [1,2,3,4,5,4,3,2,1]
-      
-  # indexOf(查找的项)
-  	numbers.indexOf(3)	// 2
-  # indexOf(查找的项, 查找的起点索引位置)
-  	numbers.indexOf(3, 4)	// 6
   ```
 
 
@@ -124,11 +107,11 @@
 
 
 
-## Date
+# Date
 
 
 
-## Math
+# Math
 
 ![1618920775880](assets/1618920775880.png)
 
@@ -158,7 +141,7 @@
 
 
 
-## String
+# String
 
 ```js
 # charAt()		charCodeAt()
@@ -180,7 +163,7 @@
 
 
 
-## Global
+# Global
 
 ![1618920597667](assets/1618920597667.png)
 
@@ -1258,6 +1241,48 @@
 
 - canvas
   - [尚硅谷HTML5实战教程(html5项目实战)_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1YW411T7p3?p=7)
+
+
+
+# 实战
+
+## `JSON.stringify`
+
+[就因为JSON.stringify，我的年终奖差点打水漂了 - 掘金 (juejin.cn)](https://juejin.cn/post/7017588385615200270)
+
+
+
+
+
+## `JavaScript 数组去重`
+
+
+
+
+
+
+
+
+
+# ES6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

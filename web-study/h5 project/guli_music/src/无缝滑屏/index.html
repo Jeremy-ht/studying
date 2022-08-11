@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>无缝滑屏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .wrap {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .list {
+      list-style: none;
+      position: absolute;
+    }
+
+    .list > li {
+      float: left;
+    }
+
+    .list > li > a, .list > li > a > img {
+      display: block;
+      width: 100%;
+    }
+
+    .carousel-wrap {
+      text-align: center;
+      height: 215px;
+      position: relative;
+    }
+
+    .point-wrap {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 2;
+      width: 100%;
+      height: 20px;
+      text-align: center;
+    }
+
+    .point-wrap > span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      background-color: #f36f08;
+      margin-left: 6px;
+    }
+
+    .point-wrap span.active {
+      background-color: #404040;
+    }
+
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="carousel-wrap">
+    <div class="point-wrap"></div>
+  </div>
+</div>
+</body>
+<script>
+  window.onload = function () {
+    const imgArr = [
+      'img/01.jpg',
+      'img/02.jpg',
+      'img/03.jpg',
+      'img/04.jpg',
+      'img/05.jpg'
+    ];
+
+    carousel(imgArr);
+
+    function carousel(imgArr) {
+      const carouselWrap = document.querySelector('.carousel-wrap');
+      if (carouselWrap) {
+        const ulNode = document.createElement('ul');
+        const imgArrLen = imgArr.length;
+        ulNode.classList.add('list');
+        for (let i = 0; i < imgArrLen; i++) {
+          ulNode.innerHTML += `
+            <li>
+              <a href="javascript:;">
+                <img src="${imgArr[i]}" alt="">
+              </a>
+            </li>
+          `
+        }
+        const styleNode = document.createElement('style');
+        styleNode.innerHTML = `
+          .list {
+            width: ${imgArrLen}00%;
+          }
+         .list > li {
+            width: ${1 / imgArrLen * 100}%;
+          }
+        `;
+        document.head.appendChild(styleNode);
+        carouselWrap.appendChild(ulNode);
+
+        const pointWrap = document.querySelector('.carousel-wrap > .point-wrap');
+        if (pointWrap) {
+          pointWrapBind(pointWrap, imgArrLen);
+        }
+
+        carouselHd(ulNode, imgArrLen);
+      }
+    }
+
+    // 指示器
+    function pointWrapBind(pointWrap, imgArrLen) {
+      for (let i = 0; i < imgArrLen; i++) {
+        if (i === 0) {
+          pointWrap.innerHTML += '<span class="active"></span>'
+        } else {
+          pointWrap.innerHTML += '<span></span>'
+        }
+      }
+
+    }
+
+    // 滑动
+    function carouselHd(ulNode, imgArrLen) {
+      let startX = 0, elementX = 0, disX = 0;
+
+      ulNode.addEventListener('touchstart', function (e) {
+        e = e || event;
+        const touch = e.changedTouches[0];
+        ulNode.style.transition = 'none';
+        startX = touch.clientX;
+        elementX = ulNode.offsetLeft;
+      });
+
+      ulNode.addEventListener('touchmove', function (e) {
+        e = e || event;
+        const touch = e.changedTouches[0];
+        const nowX = touch.clientX;
+        disX = nowX - startX;
+        ulNode.style.left = disX + elementX + 'px';
+      })
+
+      ulNode.addEventListener('touchend', function () {
+        let index = ulNode.offsetLeft / document.documentElement.clientWidth;
+        // 拖动一半换屏
+        index = Math.round(index);
+        // 三分之一
+        // console.log(Math.abs(index % 1))
+        // if (Math.abs(index % 1) > 0.333) {
+        //   index = Math.floor(index);
+        // } else {
+        //   index = Math.ceil(index);
+        // }
+
+        let spanNode = document.querySelectorAll('.carousel-wrap > .point-wrap > span');
+        for (let i = 0; i < spanNode.length; i++) {
+          spanNode[i].classList.remove('active');
+        }
+        spanNode[-index].classList.add('active');
+
+        // 控制最左右两端不要到空白
+        if (index > 0) {
+          index = 0;
+        } else if (index < 1 - imgArrLen) {
+          index = 1 - imgArrLen;
+        }
+
+        ulNode.style.transition = '.5s left';
+        ulNode.style.left = index * document.documentElement.clientWidth + 'px';
+      })
+    }
+
+  }
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+		<title></title>
+		<style>
+
+			*{
+				margin: 0;
+				padding: 0;
+			}
+
+			#test{
+				width: 100%;
+				height:1px ;
+				margin-top: 50px;
+				background: black;
+			}
+
+      @media only screen and (-webkit-device-pixel-ratio: 2){
+        #test{
+          transform: scaleY(.5);
+        }
+      }
+      @media only screen and (-webkit-device-pixel-ratio: 3){
+        #test{
+          transform: scaleY(.33333333333333333);
+        }
+      }
+		</style>
+	</head>
+	<body>
+		<div id="test"></div>
+	</body>
+</html>
