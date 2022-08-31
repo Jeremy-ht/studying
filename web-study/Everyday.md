@@ -49,11 +49,44 @@
    
    ![image-20220713230631515](D:\workspace\WebstormProject\vue-food\gshop-client\web-study\Everyday.assets\image-20220713230631515.png)
 
+
+
+
+
+
+
+
+
+
+
+
+
+#### flex
+
+- [Flex 布局教程：语法篇 - 阮一峰的网络日志 (ruanyifeng.com)](http://ruanyifeng.com/blog/2015/07/flex-grammar.html)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### `JavaScript`
 
 
 
-[现代 JavaScript 教程](https://zh.javascript.info/)
+- [现代 JavaScript 教程](https://zh.javascript.info/)
+
 
 #### 核心
 
@@ -66,6 +99,12 @@
 
 
 #### ES6
+
+1. promise
+
+
+
+
 
 #### 手写
 

@@ -20,7 +20,6 @@
       width: 320px;
       height: 320px;
       display: flex;
-      flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
     }
@@ -33,6 +32,10 @@
       text-align: center;
       line-height: 100px;
       color: #ff6600;
+    }
+
+    .option:first-child {
+
     }
 
     .btn {
@@ -72,13 +75,12 @@
 <script>
 
   const btn = document.querySelector('.btn');
-  let timer = null;
-  let count = 0;
+  const options = document.querySelectorAll('.option');
+  let timer = null, count = 0;
   btn.onclick = function () {
-    // 获取所有选项
-    const options = document.querySelectorAll('.option');
-    // 设置定时器
+
     if (timer == null) {
+      // 设置定时器
       timer = setInterval(() => {
         count++;
         // 获取随机数
@@ -87,13 +89,14 @@
           options[i].style.backgroundColor = '#fadd95';
         }
         options[random].style.backgroundColor = '#c4c1c1';
-        if (count >= 30) {
+        if (count >= 60) {
           clearInterval(timer);
           timer = null;
           count = 0;
         }
-      }, 100)
+      }, 50)
     }
+
   }
 
 </script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>随机抽奖</title>
+  <style>
+    .wrapper {
+      margin: 100px auto;
+      background-color: #fadd95;
+      border-radius: 10px;
+      width: 500px;
+      height: 500px;
+      display: flex;
+    }
+
+    .left {
+      width: 200px;
+      height: 100%;
+      background-color: #f16a6a;
+      transition:width .1s ease-in ;
+    }
+
+    .right {
+      height: 100%;
+      background-color: #009ee0;
+      flex-grow: 2;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="left" data-index="1">left</div>
+  <div class="right">right</div>
+</div>
+<button class="btn">放大</button>
+</body>
+<script>
+  const btn = document.querySelector('.btn')
+  btn.onclick = function () {
+    const left = document.querySelector('.left')
+    console.log();
+    if (left.getAttribute('data-index').valueOf() === '1') {
+      left.style.width = '50px';
+      left.setAttribute('data-index', '0')
+    }else {
+      left.style.width = '200px';
+      left.setAttribute('data-index', '1')
+    }
+
+  }
+
+</script>
+</html>
