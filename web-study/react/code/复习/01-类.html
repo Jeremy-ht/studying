@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>01-类</title>
+</head>
+<body>
+
+<script>
+  // 定义Person类
+  class Person {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    speak() {
+      console.log(`${this.name}说我的年龄${this.age}岁了`);
+    }
+  }
+
+  // 继承Person类
+  class Student extends Person {
+    constructor(name, age, grade) {
+      super(name, age);
+      this.grade = grade;
+    }
+
+    speak() {
+      console.log(`${this.name}说我的年龄${this.age}岁了，我${this.grade}了`);
+    }
+  }
+
+  const p1 = new Person('张三', 12)
+  p1.speak()
+
+  const s1 = new Student('张三', 12, '大一')
+  s1.speak()
+
+</script>
+</body>
+</html>
