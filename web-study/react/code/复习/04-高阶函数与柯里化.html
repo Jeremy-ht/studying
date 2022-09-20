@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>04-高阶函数与柯里化</title>
+</head>
+<body>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/prop-types.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+
+  /*
+    高阶函数：如果一个函数符合下面2个规范中的任何一个，那该函数就是高阶函数。
+        1.若A函数，接收的参数是一个函数，那么A就可以称之为高阶函数。
+        2.若A函数，调用的返回值依然是一个函数，那么A就可以称之为高阶函数。
+        常见的高阶函数有：Promise、setTimeout、arr.map()等等
+
+    函数的柯里化：通过函数调用继续返回函数的方式，实现多次接收参数最后统一处理的函数编码形式。
+   */
+
+  class Login extends React.Component {
+
+    state = {
+      username: '',
+      password: ''
+    }
+
+    // 高阶函数
+    // 柯里化
+    saveFormData = (dataType) => {
+      return (event) => {
+        this.setState({ [dataType]: event.target.value })
+      }
+    }
+
+    handleSubmit = (event) => {
+      event.preventDefault()
+      const { username, password } = this.state
+      alert(`用户名${username},密码${password}`)
+    }
+
+    render() {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          用户名：<input onChange={this.saveFormData('username')} type="text" placeholder="请输入用户名"/>&nbsp;
+          密码：<input onChange={this.saveFormData('password')} type="password" placeholder="请输入密码"/>&nbsp;
+          <button>提交</button>
+        </form>
+      )
+    }
+  }
+
+  ReactDOM.render(<Login/>, document.getElementById('test'))
+
+</script>
+</body>
+</html>

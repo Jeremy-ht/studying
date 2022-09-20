@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>13-事件回调</title>
+</head>
+<body>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/prop-types.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+
+  class Demo extends React.Component {
+
+    /*
+      (1).通过oXxx属性指定事件处理函数（注意大小写）
+        a.React使用的是自定义（合成）事件，而不是使用的原生DOM事件 ==> 为了更好的兼容性
+        b.React中的事件是通过事件委托方式处理的（委托给组件最外层的元素） ==> 为了更高效
+      (2).通过event.target得到发生事件的D0M元素对象 ==> 不要过度使用ref
+     */
+
+    myRef = React.createRef()
+
+    showData = () => {
+      alert(this.myRef.current.value)
+    }
+
+    showData2 = (event) => {
+      console.log(event.target.value)
+    }
+
+    render() {
+      return (
+        <div>
+          <input ref={this.myRef} type="text" placeholder="请输入"/>&nbsp;
+          <button onClick={this.showData}>显示左侧值</button>
+          &nbsp;
+          <input onBlur={this.showData2} type="text" placeholder="请输入"/>
+        </div>
+      )
+    }
+  }
+
+  ReactDOM.render(<Demo/>, document.getElementById('test'))
+
+</script>
+</body>
+</html>

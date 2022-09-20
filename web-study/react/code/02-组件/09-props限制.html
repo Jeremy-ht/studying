@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>09-props限制</title>
-
 </head>
 <body>
 
@@ -18,28 +17,29 @@
 <script type="text/babel">
 
   class Person extends React.Component {
+
+    // 限制
+    static propTypes = {
+      name: PropTypes.string.isRequired,
+      age: PropTypes.number
+    }
+
+    // 默认值
+    static defaultProps = {
+      age: 18,
+      sex: '男'
+    }
+
     render() {
       const { name, age, sex } = this.props
       return (
-          <ul>
-            <li>姓名：{name}</li>
-            <li>年龄：{age}</li>
-            <li>性别：{sex}</li>
-          </ul>
+        <ul>
+          <li>姓名：{name}</li>
+          <li>年龄：{age}</li>
+          <li>性别：{sex}</li>
+        </ul>
       )
     }
-  }
-
-  // 限制
-  Person.propTypes = {
-    name: PropTypes.string.isRequired,
-    age: PropTypes.number
-  }
-
-  // 默认值
-  Person.defaultProps = {
-    age: 18,
-    sex: '男'
   }
 
   const p = {

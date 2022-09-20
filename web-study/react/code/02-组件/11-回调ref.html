@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>11-回调ref</title>
+</head>
+<body>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/prop-types.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+
+  class Demo extends React.Component {
+
+    state = { isHot: true }
+
+    showData = () => {
+      const { input1 } = this
+      alert(input1.value)
+    }
+
+    showData2 = () => {
+      const { input2 } = this
+      alert(input2.value)
+    }
+
+    changeWeather = () => {
+      let { isHot } = this.state
+      this.setState({ isHot: !isHot })
+    }
+
+    saveInput = (curNode) => {
+      this.input1 = curNode
+    }
+
+    render() {
+      const { isHot } = this.state
+      return (
+        <div>
+          <h1 onClick={this.changeWeather}>今天天气很{isHot ? '炎热' : '凉爽'}</h1>
+          <input ref={curNode => {
+            this.input1 = curNode
+          }} type="text" placeholder="请输入"/> &nbsp;
+          <input ref={this.saveInput} type="text" placeholder="请输入"/> &nbsp;
+          <button onClick={this.showData}>显示左侧值</button>
+          &nbsp;
+          <input ref={curNode => this.input2 = curNode} onBlur={this.showData2} type="text" placeholder="请输入"/>
+        </div>
+      )
+    }
+  }
+
+  ReactDOM.render(<Demo/>, document.getElementById('test'))
+
+</script>
+</body>
+</html>
