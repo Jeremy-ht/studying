@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>16-引出生命周期</title>
+</head>
+<body>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/prop-types.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+
+  class Demo extends React.Component {
+
+    state = { opacity: 1 }
+
+    death = () => {
+      ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+    }
+
+    // 组件挂载完毕
+    componentDidMount() {
+      this.timer = setInterval(() => {
+        let { opacity } = this.state
+        opacity -= 0.1
+        if (opacity <= 0) opacity = 1
+        this.setState({ opacity })
+      }, 200)
+    }
+
+    // 组件卸载之前
+    componentWillUnmount() {
+      clearInterval(this.timer)
+    }
+
+    render() {
+      return (
+        <div>
+          <h2 style={{ opacity: this.state.opacity }}>我要隐藏了</h2>
+          <button onClick={this.death}>走了</button>
+        </div>
+      )
+    }
+  }
+
+  ReactDOM.render(<Demo/>, document.getElementById('test'))
+
+</script>
+</body>
+</html>

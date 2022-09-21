@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>18-生命周期(新)</title>
+</head>
+<body>
+
+<div id="test"></div>
+
+<script type="text/javascript" src="../js/17.0.1/react.development.js"></script>
+<script type="text/javascript" src="../js/17.0.1/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/17.0.1/babel.min.js"></script>
+
+<script type="text/babel">
+
+  /*
+    1. 初始化阶段: 由ReactDOM.render()触发---初次渲染
+            1.	constructor()
+            2.	getDerivedStateFromProps
+            3.	render()
+            4.	componentDidMount() =====> 常用
+                  一般在这个钩子中做一些初始化的事，例如：开启定时器、发送网络请求、订阅消息
+    2. 更新阶段: 由组件内部this.setSate()或父组件重新render触发
+            1.	getDerivedStateFromProps
+            2.	shouldComponentUpdate()
+            3.	render()
+            4.	getSnapshotBeforeUpdate
+            5.	componentDidUpdate()
+    3. 卸载组件: 由ReactDOM.unmountComponentAtNode()触发
+            1.	componentWillUnmount()  =====> 常用
+                  一般在这个钩子中做一些收尾的事，例如：关闭定时器、取消订阅消息
+  */
+
+  class Count extends React.Component {
+
+    constructor(props) {
+      console.log('count - constructor')
+      super(props);
+      this.state = { count: 0 }
+    }
+
+    add = () => {
+      let { count } = this.state
+      this.setState({ count: ++count })
+    }
+
+    death = () => {
+      console.log('count - unmountComponentAtNode')
+      ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+    }
+
+    // 强制更新
+    force = () => {
+      this.forceUpdate()
+    }
+
+    static getDerivedStateFromProps(props, state) {
+      console.log('count - getDerivedStateFromProps', props, state)
+      return null
+    }
+
+    // 在更新之前获取快照
+    getSnapshotBeforeUpdate() {
+      console.log('count - getSnapshotBeforeUpdate')
+      return 'ht'
+    }
+
+    // 组件挂载完成
+    componentDidMount() {
+      console.log('count - componentDidMount')
+    }
+
+    // 控制组件更新'阀门'
+    shouldComponentUpdate() {
+      console.log('count - shouldComponentUpdate')
+      return true
+    }
+
+    // 组件更新完成
+    componentDidUpdate(preProps, preState, snapshotValue) {
+      console.log('count - componentDidUpdate', preProps, preState, snapshotValue)
+    }
+
+    render() {
+      console.log('count - render')
+      const { count } = this.state
+      return (
+        <div>
+          <h1>我是第 {count} 号</h1>
+          <button onClick={this.add}>点我+1</button>
+          &nbsp;
+          <button onClick={this.death}>走了</button>
+          &nbsp;
+          <button onClick={this.force}>强制更新</button>
+        </div>
+      )
+    }
+  }
+
+  ReactDOM.render(<Count count={10}/>, document.getElementById('test'))
+
+</script>
+</body>
+</html>
