@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>07-state简写</title>
+</head>
+<body>
+
+<div id="demo"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+
+  class Counts extends React.Component {
+
+    state = {
+      count: 0
+    }
+
+    addCount = () => {
+      let { count } = this.state
+      count += 1
+      this.setState({ count })
+    }
+
+    render() {
+      console.log(this)
+      const { count } = this.state
+      return (
+        <div>
+          当前数：{count} <br/>
+          <button onClick={this.addCount}> +1</button>
+        </div>
+      )
+    }
+  }
+
+  ReactDOM.render(<Counts/>, document.getElementById('demo'))
+
+</script>
+</body>
+</html>

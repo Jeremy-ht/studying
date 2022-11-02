@@ -13,17 +13,17 @@
 <script type="text/javascript" src="../js/babel.min.js"></script>
 
 <script type="text/babel">
-  const data = [ 'Angular', 'React', 'Vue' ]
+  const data = [ '科比', '乔丹', '邓肯', '约翰逊', '韦德']
   const VDom = (
       <div>
-        <h1>前端框架列表</h1>
-        <ul>
+        <h1>NBA TOP5</h1>
+        <ol>
           {
             data.map((item, index) => {
               return <li key={index}>{item}</li>
             })
           }
-        </ul>
+        </ol>
       </div>
   )
 
