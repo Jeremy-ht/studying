@@ -1681,16 +1681,17 @@ animation-name: move;
 
 
 
+# box-sizing
 
 
 
+- content-box 标准盒模型  
+  - 实际宽高 = width/height + border + padding
+
+- border-box  怪异盒模型
+  - width/height = 内容区 + border + padding 
 
 
-
-# pc注意事项
-
-1. 页面最上层按钮，前面需要加上icon
-2. 空白页需要统一
 
 
 

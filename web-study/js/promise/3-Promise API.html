@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3-Promise API</title>
+</head>
+<body>
+<script>
+
+  const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(100)
+    }, 1000)
+  })
+  const p2 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(1000)
+    }, 1000)
+  })
+  const p3 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(2000)
+    }, 1000)
+  })
+
+  // const a = Promise.all([ p1, p2, p3 ])
+  const a = Promise.race([ p1, p2, p3 ])
+  a.then(res => {
+    console.log('res', res)
+  }, err => {
+    console.log('err', err)
+  })
+</script>
+</body>
+</html>

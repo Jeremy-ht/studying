@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .list span {
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/prop-types.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+<script type="text/babel">
+
+  class List extends React.Component {
+
+    state = {
+      book: [
+        { name: '1', date: '2022-01-01', price: '88.88', num: 1 },
+        { name: '2', date: '2022-01-01', price: '88.88', num: 1 },
+        { name: '3', date: '2022-01-01', price: '88.88', num: 1 },
+        { name: '4', date: '2022-01-01', price: '88.88', num: 1 }
+      ]
+    }
+
+    delete = (c) => {
+
+      const { book } = this.state
+      book.splice(book.findIndex(item => {
+        return item.name === c
+      }), 1)
+      this.setState({ book })
+    }
+
+    render() {
+      const { book } = this.state
+      return (
+        <div>
+          {
+            book.map((item) => {
+              return (
+                <div key={item.name} className="list">
+                  <span>{item.name}</span>
+                  <span>{item.date}</span>
+                  <span>{item.price}</span>
+                  <span>{item.num}</span>
+                  <button onClick={() => this.delete(item.name)}>删除</button>
+                </div>
+              )
+            })
+          }
+
+        </div>
+      )
+    }
+  }
+
+  class Book extends React.Component {
+    render() {
+
+      const { name, date, price, num } = this.props
+
+      return (
+        <div>
+          <span>{name}</span>
+          <span>{date}</span>
+          <span>{price}</span>
+          <span>{num}</span>
+        </div>
+      )
+    }
+  }
+
+
+  ReactDOM.render(<List/>, document.getElementById('app'))
+</script>
+</body>
+</html>
