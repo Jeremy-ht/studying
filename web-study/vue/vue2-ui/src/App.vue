@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <Star :num="num" :size="size" :color="color" @getStarNum="getStarNum"/>
+    <!--    <Star :num="num" :size="size" :color="color" @getStarNum="getStarNum"/>-->
+    <CanvasIndex/>
   </div>
 </template>
 
 <script>
+
+import CanvasIndex from '@/canvas/index'
 
 export default {
   name: 'App',
@@ -14,6 +17,9 @@ export default {
       size: 50,
       color: '#10d3c3'
     }
+  },
+  components: { CanvasIndex },
+  mounted() {
   },
   methods: {
     getStarNum(num) {

@@ -14,6 +14,25 @@ const options = {
 		"pageSize": 5000
 	})
 }
+let count = 0, arr2 = [], arr3 = []
+
+function aaa() {
+	fetch(url, options)
+		.then(response => response.json())
+		.then(json => {
+			json['dataSet'].forEach((item, index) => {
+				if (item['SFGHHY'] === '1' && item['DQZT'] == '在职' ) {
+					arr2.push(item)
+				}
+			})
+			
+			console.log(arr2.length)
+		})
+}
+
+aaa()
+
+
 
 fetch(url, options)
 	.then(response => response.json())
