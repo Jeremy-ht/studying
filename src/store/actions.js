@@ -115,4 +115,8 @@ export default {
     commit(CLEAR_CART_FOOD)
   },
 
+  clearCartList ({commit}) {
+    commit(CLEAR_CART_FOOD)
+  },
+
 }

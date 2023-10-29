@@ -12,4 +12,5 @@ export default {
   ratings: [], // 商家评价列表
   info: {}, // 商家信息
   cartFoods: [], // 购物车菜品
+  supplier: [], // 供应商
 }
