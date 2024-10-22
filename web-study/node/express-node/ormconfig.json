@@ -1,0 +1,13 @@
+{
+  "type": "mysql",
+  "host": "8.136.218.79",
+  "port": 3306,
+  "username": "root",
+  "password": "Jeremy@17",
+  "database": "h_labor_union",
+  "synchronize": true,
+  "logging": false,
+  "entities": ["src/entity/**/*.ts"],
+  "migrations": ["src/migration/**/*.ts"],
+  "subscribers": ["src/subscriber/**/*.ts"]
+}

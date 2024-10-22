@@ -4,6 +4,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require('body-parser');
+// const db = require('./mysqls')
+
+
+import { createConnection, createConnections, Connection } from "typeorm";
+
+const connection = await createConnection();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -25,20 +31,23 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.get('/login', (req, res) => {
-	res.sendFile(__dirname + '/public/login.html')
-})
-
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/avator', urlParser, loginRouter);
+// app.use('/avator', loginRouter);
 
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
 	next(createError(404));
 });
+
+// app.use('/mysql', function (req, res, next) {
+// 	db.query('select 1', (err, res) => {
+// 		if (err) return console.log(err)
+// 		console.log(res)
+// 	})
+// 	res.render('ok');
+// });
 
 // error handler
 app.use(function (err, req, res, next) {

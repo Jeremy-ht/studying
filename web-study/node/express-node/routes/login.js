@@ -3,12 +3,10 @@ const router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-  res.render('../views/login.html');
+  res.render('login');
 });
 
 router.post('/', function(req, res, next) {
   console.log(req.body)
   res.send('ok');
 });
-
-module.exports = router;
